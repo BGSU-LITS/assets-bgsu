@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 50">
     <style>
         #bg, #su, #ul { fill: #fff }
-        line { fill: none; stroke: #fff; stroke-width: 0.5 }
+        #line { fill: none; stroke: #fff; stroke-width: 0.5 }
     </style>
     <g id="bg">
         <path d="M0 36.38V13.16h10.64c4.18.03 7.69 2 7.69 6.08 0 2.86-2.3 4.6-4.8 5.08v.06c2.95.42 5.35 2.38 5.35 5.7 0 6.75-8.23 6.3-8.46 6.3H0zm9.75-4.5c1.54 0 2.68-.96 2.68-2.41 0-1.29-.86-2.51-2.24-2.6H6.15v5.02h3.6v-.01zm-3.6-9.48l3.13-.03c1.66 0 2.74-.68 2.74-2.44 0-1.32-1.07-2.25-2.52-2.25H6.15v4.72z"/>
