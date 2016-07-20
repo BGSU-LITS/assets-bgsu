@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{
+    helper.metas()
+    .add({charset: 'utf-8'})
+    .addName('viewport', 'width=device-width,initial-scale=1,shrink-to-fit=no')
+    .addHttp('x-ua-Compatible', 'ie=edge')
+    |raw
+}}
+{{
+    helper.title(title)
+    .append(' - University Libraries at BGSU')
+    |raw
+}}
+{% block styles %}
+{{
+    helper.styles()
+    .add(
+        '/assets/theme/bootstrap.css' ~
+        '?brand-primary=%23ff7300' ~
+        '&brand-success=%2380bc00' ~
+        '&border-radius-base=0'
+    )
+    .add('/assets/css/bgsu/page.css')
+    |raw
+}}
+{% endblock %}
+</head>
+<body>
+    <header>
+        <div class="row">
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                {% block logo_left %}
+                <a href="http://www.bgsu.edu/library/">
+                    <img src="/assets/img/systems.png" alt="University Libraries at BGSU" class="img-responsive" />
+                </a>
+                {% endblock %}
+            </div>
+            <div class="col-md-4 col-md-offset-4 col-sm-6 hidden-xs">
+                {% block logo_right %}
+                {% endblock %}
+            </div>
+        </div>
+        {% if navbar %}
+        <nav class="navbar navbar-default">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bgsu-navbar" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand hidden-sm hidden-md hidden-lg" data-toggle="collapse" data-target="#bgsu-navbar" aria-expanded="false">
+                    Navigation
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bgsu-navbar">
+                <ul class="nav navbar-nav">
+                    {% block navbar_left %}
+                    {% endblock %}
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    {% block navbar_right %}
+                    {% endblock %}
+                </ul>
+            </div>
+        </nav>
+        {% else %}
+            <hr>
+        {% endif %}
+    </header>
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    {% for message in messages %}
+        <div class="alert alert-{{message.level}}">{{message.message}}</div>
+    {% endfor %}
+{% endblock %}
+
+    <footer>
+        <ul class="list-inline">
+            <li><a href="http://www.bgsu.edu/">BGSU Homepage</a></li>
+            <li><a href="http://www.bgsu.edu/library/">University Libraries Homepage</a></li>
+            <li><a href="http://www.bgsu.edu/library/ask-us.html">Contact Us at the University Libraries</a></li>
+        </ul>
+    </footer>
+
+{% block scripts %}
+{{
+    helper.scripts()
+    .add('/assets/js/jquery.js')
+    .add('/assets/js/bootstrap.js')
+    |raw
+}}
+{% endblock %}
+</body>
+</html>
