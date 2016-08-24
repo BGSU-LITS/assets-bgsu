@@ -20,7 +20,9 @@
         '/assets/theme/bootstrap.css' ~
         '?brand-primary=%23ff7300' ~
         '&brand-success=%2380bc00' ~
-        '&border-radius-base=0'
+        '&btn-default-color=%23fff' ~
+        '&btn-default-bg=%23bbb' ~
+        '&btn-default-border=%23aeaeae'
     )
     .add('/assets/css/bgsu/page.css')
     |raw
@@ -31,18 +33,18 @@
     <header>
         <div class="row">
             <div class="col-md-4 col-sm-6 col-xs-12">
-                {% block logo_left %}
+{% block logo_left %}
                 <a href="http://www.bgsu.edu/library/">
                     <img src="/assets/img/systems.png" alt="University Libraries at BGSU" class="img-responsive" />
                 </a>
-                {% endblock %}
+{% endblock %}
             </div>
             <div class="col-md-4 col-md-offset-4 col-sm-6 hidden-xs">
-                {% block logo_right %}
-                {% endblock %}
+{% block logo_right %}
+{% endblock %}
             </div>
         </div>
-        {% if navbar %}
+{% if navbar %}
         <nav class="navbar navbar-default">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bgsu-navbar" aria-expanded="false">
@@ -57,25 +59,25 @@
             </div>
             <div class="collapse navbar-collapse" id="bgsu-navbar">
                 <ul class="nav navbar-nav">
-                    {% block navbar_left %}
-                    {% endblock %}
+{% block navbar_left %}
+{% endblock %}
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    {% block navbar_right %}
-                    {% endblock %}
+{% block navbar_right %}
+{% endblock %}
                 </ul>
             </div>
         </nav>
-        {% else %}
-            <hr>
-        {% endif %}
+{% else %}
+        <hr>
+{% endif %}
     </header>
 
 {% block content %}
     <h1>{{ title }}</h1>
-    {% for message in messages %}
-        <div class="alert alert-{{message.level}}">{{message.message}}</div>
-    {% endfor %}
+{% for message in messages %}
+    <div class="alert alert-{{message.level}}">{{message.message}}</div>
+{% endfor %}
 {% endblock %}
 
     <footer>
